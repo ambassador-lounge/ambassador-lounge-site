@@ -1,0 +1,82 @@
+{{ $ambassador := . }}
+<div class="author-meta">
+	<div class="author">
+	{{ if $ambassador.email }}
+	<img alt='{{ $ambassador.email }}' src="https://www.gravatar.com/avatar/{{ md5 $ambassador.email }}?s=100&d=identicon" class='avatar avatar-72 photo' height='72' width='72'>
+	{{ else }}
+		<img alt='{{ .Site.Params.ambassador | default .Site.Params.author }}' src="https://www.gravatar.com/avatar/{{ md5 .Site.Params.email }}?s=100&d=identicon" class='avatar avatar-72 photo' height='72' width='72'>
+	{{ end }}
+	<span>{{ $ambassador.name }}</span>
+	<p>
+		{{ if gt (len $ambassador.websites) 0 }}<span>{{ if gt (len $ambassador.websites) 1 }}Websites:{{ else }}Website:{{ end }}</span>
+		<ul style="text-transform:none">{{ range $name, $link := $ambassador.websites}}<li><a href="{{ $link }}">{{$name}}</a></li>{{ end }}
+		</ul>{{ end }}
+		{{ if $ambassador.website }}<span>Website:</span> <a href="{{ $ambassador.websitelink }}">{{$ambassador.website}}</a><br/> {{ end }}
+		<ul style="text-transform:none">{{ if gt (len $ambassador.companies) 0 }}<span>{{ if gt (len $ambassador.companies) 1 }}Companies:{{ else }}Company:{{ end }}</span>
+		{{ range $name, $link := $ambassador.companies}}<li><a href="{{ $link }}">{{$name}}</a></li>{{ end }}
+		</ul>{{ end }}
+		{{ if $ambassador.location }}<span>Location:</span> {{ $ambassador.location }}{{end}}
+	</p>
+</div>
+<div class="bio">
+	{{ range $ambassador.bio  }}
+		<p>{{ . | default "" | safeHTML }}</p>
+	{{ end }}
+
+	{{ with $ambassador.facebook }}
+	<a class="facebook" target="_blank"
+		href="{{ . }}">
+		<i class="fab fa-facebook-f"
+		title="facebook icon"></i>
+	</a>
+	{{end}}
+
+	{{ with $ambassador.twitter }}
+	<a class="twitter" target="_blank"
+		href="{{ . }}">
+		<i class="fab fa-twitter-square"
+		title="twitter icon"></i>
+	</a>
+	{{end}}
+
+	{{ with $ambassador.linkedin }}
+	<a class="linkedin" target="_blank"
+		href="{{ . }}">
+		<i class="fab fa-linkedin"
+		title="linkedin icon"></i>
+	</a>
+	{{end}}
+
+	{{ with $ambassador.medium }}
+	<a class="medium" target="_blank"
+		href="{{ . }}">
+		<i class="fab fa-medium"
+		title="medium icon"></i>
+	</a>
+	{{end}}
+
+	{{ with $ambassador.instagram }}
+	<a class="instagram" target="_blank"
+		href="{{ . }}">
+		<i class="fab fa-instagram"
+		title="instagram icon"></i>
+	</a>
+	{{end}}
+
+	{{ with $ambassador.stackoverflow }}
+	<a class="stackoverflow" target="_blank"
+		href="{{ . }}">
+		<i class="fab fa-stack-overflow"
+		title="stackoverflow icon"></i>
+	</a>
+	{{end}}
+
+	{{ with $ambassador.github }}
+	<a class="github" target="_blank"
+		href="{{ . }}">
+		<i class="fab fa-github"
+		title="github icon"></i>
+	</a>
+	{{end}}
+
+</div>

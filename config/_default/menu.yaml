@@ -1,0 +1,29 @@
+  # Nav links in the side bar
+main:
+  - name: "Home"
+    url: "/"
+    weight: 1
+
+  - name: "Podcast"
+    url: podcast/
+    weight: 2
+
+  - name: "Blog posts"
+    url: "posts/"
+    weight: 3
+
+  - name: "Presentations"
+    url: "presentations/"
+    weight: 4
+
+  - name: "Videos"
+    url: "videos/"
+    weight: 5
+
+  - name: "Projects"
+    url: "projects/"
+    weight: 6
+
+  - name: "About"
+    url: "about/"
+    weight: 7

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>{{ partial "head.html" . }}</head>
+{{ block "body" . }}
+<body class="home blog ct-body standard">
+{{ end }}
+  <div id="overflow-container" class="overflow-container">
+    <a class="skip-content" href="#main">Skip to content</a>
+    <header id="site-header" class="site-header" role="banner">
+      <div class='top-navigation'>
+        <div class='container'>
+
+  <div id="menu-secondary" class="menu-container menu-secondary" role="navigation">
+    <button id="toggle-secondary-navigation" class="toggle-secondary-navigation"><i class="fas fa-plus"></i></button>
+    <div class="menu">
+      <ul id="menu-secondary-items" class="menu-secondary-items">
+        {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+        <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+          <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}">{{ $name }}</a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+    <ul class="social-media-icons">
+      <li>
+        <a href="/podcast.xml" data-animate-hover="pulse" class="rss" target="_blank">
+          <i class="fas fa-podcast" title="podcast"></i>
+          <span class="screen-reader-text">podcast</span>
+        </a>
+      </li>
+      <li>
+        <a href="/index.xml" data-animate-hover="pulse" class="rss" target="_blank">
+          <i class="fas fa-rss" title="rss"></i>
+          <span class="screen-reader-text">rss</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+      </div>
+
+      <div class="container">
+        {{ partial "header.html" . }}
+      </div>
+    </header>
+
+    <div id="main" class="main" role="main">
+
+      {{ block "main" . }}
+      {{ end }}
+    </div>
+
+    {{ partial "footer.html" . }}
+  </div>
+  {{ partial "scripts.html" . }}
+</body>
+</html>

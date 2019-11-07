@@ -1,0 +1,5 @@
+posts: /posts/:year/:month/:slug/
+pages: /:slug/
+presentation: /presentations/:year/:month/:slug
+video: /videos/:year/:month/:slug
+podcast: /podcast/:slug

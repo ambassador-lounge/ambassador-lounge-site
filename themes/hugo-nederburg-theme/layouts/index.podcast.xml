@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+    xmlns:admin="http://webns.net/mvcb/"
+    xmlns:atom="http://www.w3.org/2005/Atom/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+<channel>
+    <title>{{ .Site.Title }} Podcast</title>
+    <link>{{ .Permalink }}</link>
+    <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 MST" }}</pubDate>
+    {{ with .Site.LanguageCode }}
+    <language>{{.}}</language>{{end}}
+    {{ with .Site.LanguageCode }}<language>{{.}}</language>{{end}}
+    {{ with .Site.Copyright }}<copyright>{{.}}</copyright>{{end}}
+    <generator>Hugo</generator>
+    <copyright>Copyright @ 2019 Ambassador Lounge</copyright>
+    <itunes:author>Ambassador Lounge</itunes:author>
+    <itunes:subtitle>A rotating cast of AWS APN Ambassadors discusses what's new and exciting in the world of AWS.</itunes:subtitle>
+    <itunes:summary>A rotating cast of AWS APN Ambassadors discusses what's new and exciting in the world of AWS.</itunes:summary>
+    <description>A rotating cast of AWS APN Ambassadors discusses what's new and exciting in the world of AWS.</description>
+    <itunes:explicit>clean</itunes:explicit>
+    <itunes:block>no</itunes:block>
+    <itunes:owner>
+        <itunes:name>Ambassador Lounge</itunes:name>
+        <itunes:email>podcast@ambassadorlounge.com</itunes:email>
+    </itunes:owner>
+    <itunes:category text="Technology"/>
+    <itunes:image href=""/>
+    {{ range where (where .Site.Pages "Type" "==" "podcast").ByDate.Reverse "IsPage" true }}
+    <item>
+        <title>{{ .Title }}</title>
+        <dc:creator>{{ range .Params.Ambassadors }}{{ . }} {{end}}</dc:creator>
+        <link>{{ .Params.Sourcefile }}</link>
+        <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 MST" }}</pubDate>
+        <guid>{{ .Permalink }}</guid>
+        <description>{{ .Summary }}</description>
+        <itunes:summary>{{ .Summary }}</itunes:summary>
+        <itunes:author>APN Ambassadors</itunes:author>
+        <itunes:explicit>no</itunes:explicit>
+        <itunes:duration>{{ .Params.Duration }}</itunes:duration>
+        <itunes:image href="{{ .Params.EpisodeImage }}?content-type=image%2Fjpeg"/>
+        <content:encoded><![CDATA[{{ .Content | htmlEscape }}]]></content:encoded>
+        <enclosure url="{{ .Params.Sourcefile }}" length="{{ .Params.Sourcesize }}" type="audio/mpeg"/>
+        <media:content url="{{ .Params.Sourcefile }}" length="{{ .Params.Sourcesize }}" type="audio/mpeg" isDefault="true" medium="audio"/>
+    </item>
+    {{ end }}
+</channel>
+</rss>

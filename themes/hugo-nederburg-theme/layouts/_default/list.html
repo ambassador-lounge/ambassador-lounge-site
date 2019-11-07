@@ -1,0 +1,17 @@
+{{ define "main" }}
+<h1 class="screen-reader-text">{{.Data.Terms}}</h1>
+<div id="loop-container" class="loop-container">
+    {{ range $index, $element := .Data.Terms.Alphabetical }}
+    <div class="post type-post status-publish format-standard hentry category-standard category-travel excerpt zoom full-without-featured odd excerpt">
+        <div class="excerpt-container">
+            <div class='excerpt-content'>
+                <article>
+                    <h1><a href="{{ $element.Page.Permalink }}">{{ $element.Page.Title }}</a></h1>
+                    <p>Number of items: {{ $element.Count }}</p>
+                </article>
+            </div>
+        </div>
+    </div>
+    {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,39 @@
+{{ if and (isset .Params "image") .Params.image }}
+    {{if .Params.Redirect }}
+	<a class="featured-image-link" href="{{ .Params.Redirect }}"><div class='featured-image lazy lazy-bg-image' {{if isset .Site.Params "usepostimgfolder"}}data-background="{{ .Permalink }}{{ .Params.image }}"{{ else }}data-background="{{ .Params.image | absURL }}"{{ end }}></div></a>
+    {{ else }}
+	<a class="featured-image-link" href="{{ .Permalink }}"><div class='featured-image lazy lazy-bg-image' {{if isset .Site.Params "usepostimgfolder"}}data-background="{{ .Permalink }}{{ .Params.image }}"{{ else }}data-background="{{ .Params.image | absURL }}"{{ end }}></div></a>
+    {{ end }}
+{{ end }}
+<div class="excerpt-container">
+    <div class="excerpt-meta">
+        <span class="date">{{ .Date.Format "02 January" }}</span>
+        <span> / </span>
+        {{ range .Params.ambassadors }}
+        <span class="author">
+            <a href="/ambassadors/{{ . | urlize }}" title="Posts by {{ . }}" rel="author">{{ . }}</a>
+        </span>
+        {{ end }}
+        {{ range .Params.categories }}
+        <span> / </span>
+        <span class="category">
+            <a href="/categories/{{ . | urlize }}">{{ . }}</a>
+        </span>
+        {{ end }}
+    </div>
+    <div class='excerpt-header'>
+        <h2 class='excerpt-title'><a href="{{ .Permalink }} "> {{ .Title }} </a></h2>
+    </div>
+    <div class='excerpt-content'>
+        <article>
+            {{ .Summary }}
+            <div class="more-link-wrapper">
+            {{if .Params.Redirect }}
+            <a class="more-link" href="{{ .Params.Redirect }}">Read the original post<span class="screen-reader-text">This is a Link Post</span></a>
+            {{else}}
+            <a class="more-link" href="{{ .Permalink }}">Read the post<span class="screen-reader-text">This is a Standard Post</span></a>
+            {{ end }}
+            </div>
+        </article>
+    </div>
+</div>

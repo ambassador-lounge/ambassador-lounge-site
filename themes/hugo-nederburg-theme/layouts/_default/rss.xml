@@ -1,0 +1,25 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ .Site.Title }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>Content from the {{ .Site.Title }}</description>{{ with .Site.LanguageCode }}
+    <language>{{.}}</language>{{end}}
+    <managingEditor>APN Ambassadors</managingEditor>
+    {{ with .Site.LanguageCode }}<language>{{.}}</language>{{end}}
+    {{ with .Site.Copyright }}<copyright>{{.}}</copyright>{{end}}
+    <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 MST" }}</lastBuildDate>
+    {{ with .OutputFormats.Get "RSS" }}
+        {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
+    {{ end }}
+    {{ range first 15 .Site.RegularPages }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ if isset .Params "redirect" }}{{ .Params.redirect }}{{ else }}{{ .Permalink }}{{ end }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 MST" }}</pubDate>
+      <author>{{ range .Params.Ambassadors }}{{ . }} {{end}}</author>
+      <guid>{{ .Permalink }}</guid>
+      <description>{{ .Content | html }}</description>
+    </item>
+    {{ end }}
+  </channel>
+</rss>

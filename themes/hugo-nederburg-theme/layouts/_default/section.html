@@ -1,0 +1,18 @@
+{{ define "main" }}
+  <main>
+      <div class="archive-header">
+        <div class="entry-container">
+          <div class="entry-content">
+            <article>
+              <div class="entry-meta">
+              <h1>{{ .Title }}</h1>
+              {{ .Content }}
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+      {{ partial "sectionportfolio" . }}
+      {{ partial "pagination.html" . }}
+  </main>
+{{ end }}

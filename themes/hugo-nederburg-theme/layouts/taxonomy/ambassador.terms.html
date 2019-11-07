@@ -1,0 +1,22 @@
+{{ define "main" }}
+    <div id="content" class="col-full">
+        <section id="main">
+            <header class="archive-header">
+                <h1 style="margin-left: 130px;">Ambassadors</h1>
+            </header>
+            <div class="fix"></div>
+
+            <div id="projects">
+                <ul>
+                    {{ range $name, $taxonomy := .Site.Taxonomies.ambassadors }}
+                        <li>
+                            {{ $name }}
+                        </li>
+                  {{ end }}
+
+                </ul>
+
+            </div>
+
+    </div><!-- /#content -->
+{{ end }}
