@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:dc="http://purl.org/dc/elements/1.1/"
     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
     xmlns:admin="http://webns.net/mvcb/"
@@ -10,12 +9,9 @@
     <title>{{ .Site.Title }} Podcast</title>
     <link>{{ .Permalink }}</link>
     <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 MST" }}</pubDate>
-    {{ with .Site.LanguageCode }}
-    <language>{{.}}</language>{{end}}
-    {{ with .Site.LanguageCode }}<language>{{.}}</language>{{end}}
-    {{ with .Site.Copyright }}<copyright>{{.}}</copyright>{{end}}
+    <language>en-US</language>
     <generator>Hugo</generator>
-    <copyright>Copyright @ 2019 Ambassador Lounge</copyright>
+    <copyright>Copyright @ {{ .Date.Format "2006" }} Ambassador Lounge</copyright>
     <itunes:author>Ambassador Lounge</itunes:author>
     <itunes:subtitle>A rotating cast of AWS APN Ambassadors discusses what's new and exciting in the world of AWS.</itunes:subtitle>
     <itunes:summary>A rotating cast of AWS APN Ambassadors discusses what's new and exciting in the world of AWS.</itunes:summary>
