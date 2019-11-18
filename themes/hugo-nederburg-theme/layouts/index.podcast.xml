@@ -37,7 +37,7 @@
         <itunes:explicit>no</itunes:explicit>
         <itunes:duration>{{ .Params.Duration }}</itunes:duration>
         <itunes:image href="{{ if isset .Params "EpisodeImage" }}{{ .Params.EpisodeImage }}{{ else }}{{.Permalink}}images/podcast.jpg{{end}}?content-type=image%2Fjpeg"/>
-        <content:encoded><![CDATA[{{ .Content | htmlEscape }}]]></content:encoded>
+        <content:encoded><![CDATA[{{ .Content }}]]></content:encoded>
         <enclosure url="{{ .Params.Sourcefile }}" length="{{ .Params.Sourcesize }}" type="audio/mpeg"/>
         <media:content url="{{ .Params.Sourcefile }}" length="{{ .Params.Sourcesize }}" type="audio/mpeg" isDefault="true" medium="audio"/>
     </item>
