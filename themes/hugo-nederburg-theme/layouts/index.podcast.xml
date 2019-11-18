@@ -7,7 +7,7 @@
     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
 <channel>
     <title>{{ .Site.Title }} Podcast</title>
-    <link>{{ .Permalink }}</link>
+    <link>{{ .Permalink }}podcast/</link>
     <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 MST" }}</pubDate>
     <language>en-US</language>
     <generator>Hugo</generator>
@@ -19,24 +19,24 @@
     <itunes:explicit>clean</itunes:explicit>
     <itunes:block>no</itunes:block>
     <itunes:owner>
-        <itunes:name>Ambassador Lounge</itunes:name>
-        <itunes:email>podcast@ambassadorlounge.com</itunes:email>
+        <itunes:name>APN Ambassadors</itunes:name>
+        <itunes:email>ambassadorlounge@ig.nore.me</itunes:email>
     </itunes:owner>
     <itunes:category text="Technology"/>
-    <itunes:image href=""/>
+    <itunes:image href="{{ .Permalink }}images/podcast.jpg"/>
     {{ range where (where .Site.Pages "Type" "==" "podcast").ByDate.Reverse "IsPage" true }}
     <item>
         <title>{{ .Title }}</title>
         <dc:creator>{{ range .Params.Ambassadors }}{{ . }} {{end}}</dc:creator>
-        <link>{{ .Params.Sourcefile }}</link>
+        <link>{{ .Permalink }}</link>
         <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 MST" }}</pubDate>
         <guid>{{ .Permalink }}</guid>
         <description>{{ .Summary }}</description>
-        <itunes:summary>{{ .Summary }}</itunes:summary>
+        <itunes:subtitle>{{ .Summary }}</itunes:subtitle>
         <itunes:author>APN Ambassadors</itunes:author>
         <itunes:explicit>no</itunes:explicit>
         <itunes:duration>{{ .Params.Duration }}</itunes:duration>
-        <itunes:image href="{{ .Params.EpisodeImage }}?content-type=image%2Fjpeg"/>
+        <itunes:image href="{{ if isset .Params "EpisodeImage" }}{{ .Params.EpisodeImage }}{{ else }}{{.Permalink}}images/podcast.jpg{{end}}?content-type=image%2Fjpeg"/>
         <content:encoded><![CDATA[{{ .Content | htmlEscape }}]]></content:encoded>
         <enclosure url="{{ .Params.Sourcefile }}" length="{{ .Params.Sourcesize }}" type="audio/mpeg"/>
         <media:content url="{{ .Params.Sourcefile }}" length="{{ .Params.Sourcesize }}" type="audio/mpeg" isDefault="true" medium="audio"/>

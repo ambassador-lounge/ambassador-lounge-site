@@ -11,7 +11,6 @@
 		{{ if gt (len $ambassador.websites) 0 }}<span>{{ if gt (len $ambassador.websites) 1 }}Websites:{{ else }}Website:{{ end }}</span>
 		<ul style="text-transform:none">{{ range $name, $link := $ambassador.websites}}<li><a href="{{ $link }}">{{$name}}</a></li>{{ end }}
 		</ul>{{ end }}
-		{{ if $ambassador.website }}<span>Website:</span> <a href="{{ $ambassador.websitelink }}">{{$ambassador.website}}</a><br/> {{ end }}
 		<ul style="text-transform:none">{{ if gt (len $ambassador.companies) 0 }}<span>{{ if gt (len $ambassador.companies) 1 }}Companies:{{ else }}Company:{{ end }}</span>
 		{{ range $name, $link := $ambassador.companies}}<li><a href="{{ $link }}">{{$name}}</a></li>{{ end }}
 		</ul>{{ end }}

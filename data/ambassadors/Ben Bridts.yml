@@ -1,0 +1,11 @@
+name: Ben Bridts
+companies:
+  Cloudar: https://www.cloudar.be
+websites: []
+location: Belgium
+twitter: "https://twitter.com/benbridts"
+# linkedin:
+github: "https://github.com/ikben/"
+# email:
+bio:
+  - Ben has been using AWS since 2015 and works with businesses ranging from start-ups to enterprises. He provides architectural and operational support and shares his experiences along the way. Currently his favourite services are CloudFormation, Lambda, KMS, CloudFront, and Lambda@Edge. He pronounces AMI as A-M-I.

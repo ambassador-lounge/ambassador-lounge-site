@@ -1,4 +1,5 @@
 ---
 Title: The Ambassador Lounge Podcast
 ---
-The home of the awesome podcast
+
+A rotating cast of AWS APN Ambassadors discusses what's new and exciting in the world of AWS.

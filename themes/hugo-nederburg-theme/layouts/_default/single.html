@@ -58,12 +58,12 @@
 </p></div>
 
 <div class="entry-tags"><span>Ambassadors</span></div>
+{{ range $ambassadorName := .Params.ambassadors }}
 <div class="entry-ambassadors">
-      {{ range $ambassadorName := .Params.ambassadors }}
           {{ $ambassador := index $.Site.Data.ambassadors $ambassadorName }}
           {{ partial "ambassador" $ambassador }}
-      {{ end }}
 </div>
+{{ end }}
 </div>
 
 
