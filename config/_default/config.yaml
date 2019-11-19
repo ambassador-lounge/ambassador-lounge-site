@@ -19,3 +19,4 @@ outputs:
     - "rss"
     - "podcast"
 paginate: 10
+googleAnalytics: UA-152855853-1

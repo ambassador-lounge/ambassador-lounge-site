@@ -1,0 +1,22 @@
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary }}{{ end }}"/>
+<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05 MST" }}"/>
+<meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05 MST" }}"/>
+{{ range .Params.Ambassadors }}<meta property="article:author" content="{{ . }}"/> {{end}}
+
+{{ if isset .Params "tags" }}
+    {{ range .Params.tags }}<meta property="article:tag" content="{{ . }}">{{ end }}
+{{ end }}
+
+{{ if .Params.image }}
+    <meta property="og:image" content="{{ .Params.image }}" />
+    <meta name="twitter:image:src" content="{{ .Params.image }}">
+{{ end }}
+
+{{ if .Params.ogimage }}
+<meta itemprop="image" content="{{ .Params.ogimage }}" />
+{{ else }}
+    {{ range .Params.categories }}
+        <meta itemprop="image" content="https://ig.nore.me/img/categories/category-{{ . | urlize }}-full.jpg" />
+    {{ end }}
+{{ end }}

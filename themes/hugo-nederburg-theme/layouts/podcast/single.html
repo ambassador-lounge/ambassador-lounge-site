@@ -4,13 +4,13 @@
 {{ define "main" }}
   <div id="loop-container" class="loop-container">
     {{ if and (isset .Params "image") .Params.image }}
-    <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
+    <div itemscope itemtype="https://schema.org/Episode" class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
 
       <div class='featured-image lazy lazy-bg-image' {{ if isset .Site.Params "usepostimgfolder" }} data-background="{{ .Permalink }}{{ .Params.image }}"{{ else }} data-background="{{ .Params.image | absURL }}"{{ end }}>
       </div>
       {{ else }}
 
-      <div class="post type-post status-publish format-standard hentry category-standard category-travel entry full-without-featured odd excerpt-1">
+      <div itemscope itemtype="https://schema.org/Episode" class="post type-post status-publish format-standard hentry category-standard category-travel entry full-without-featured odd excerpt-1">
 
         {{ end }}
         <div class="entry-meta">
@@ -45,6 +45,7 @@
                         Your browser does not support the
                         <code>audio</code> element.
                 </audio>
+                <meta property="og:audio" content="{{.Params.Sourcefile}}"/>
               </figure>
               {{ .Content }}
 
@@ -76,7 +77,7 @@
 </div>
 {{ end }}
 </div>
-
+{{ .Render "schema" }}
 
 </div>
 </div>
