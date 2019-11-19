@@ -7,11 +7,11 @@
 		<img alt='{{ .Site.Params.ambassador | default .Site.Params.author }}' src="https://www.gravatar.com/avatar/{{ md5 .Site.Params.email }}?s=100&d=identicon" class='avatar avatar-72 photo' height='72' width='72'>
 	{{ end }}
 		<span style="white-space: nowrap;">{{ $ambassador.name }}</span>
-	<div>
-		{{ if gt (len $ambassador.websites) 0 }}<span>{{ if gt (len $ambassador.websites) 1 }}Websites:{{ else }}Website:{{ end }}</span>
+	<div style="clear: both;">
+		{{ if gt (len $ambassador.websites) 0 }}<span style="white-space: nowrap;">{{ if gt (len $ambassador.websites) 1 }}Websites:{{ else }}Website:{{ end }}</span>
 		<ul style="text-transform:none">{{ range $name, $link := $ambassador.websites}}<li><a href="{{ $link }}">{{$name}}</a></li>{{ end }}
 		</ul>{{ end }}
-		{{ if gt (len $ambassador.companies) 0 }}<span>{{ if gt (len $ambassador.companies) 1 }}Companies:{{ else }}Company:{{ end }}</span>
+		{{ if gt (len $ambassador.companies) 0 }}<span style="white-space: nowrap;">{{ if gt (len $ambassador.companies) 1 }}Companies:{{ else }}Company:{{ end }}</span>
 		<ul style="text-transform:none">{{ range $name, $link := $ambassador.companies}}<li><a href="{{ $link }}">{{$name}}</a></li>{{ end }}
 		</ul>{{ end }}
 		{{ if $ambassador.location }}<span>Location:</span> {{ $ambassador.location }}{{end}}
