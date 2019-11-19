@@ -9,8 +9,8 @@
 {{ end }}
 
 {{ if .Params.image }}
-    <meta property="og:image" content="{{ .Params.image }}" />
-    <meta name="twitter:image" content="{{ .Params.image }}" />
+    <meta property="og:image" content="{{ .Params.image | absURL }}" />
+    <meta name="twitter:image" content="{{ .Params.image | absURL }}" />
 {{ else }}
     <meta property="og:image" content="{{"/images/logo.jpg" | absURL}}" />
     <meta name="twitter:image" content="{{"/images/logo.jpg" | absURL}}" />

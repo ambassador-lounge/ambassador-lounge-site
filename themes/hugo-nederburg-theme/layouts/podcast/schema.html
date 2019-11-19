@@ -14,4 +14,4 @@
 </span>
 </span>
 <meta itemprop="episodeNumber" content="{{.Slug}}"/>
-<meta itemprop="image" content="{{if in .Params "image"}}{{ .Params.image }}{{else}}{{"/images/logo.jpg" | absURL}}{{end}}" />
+<meta itemprop="image" content="{{if in .Params "image"}}{{ .Params.image | absURL }}{{else}}{{"/images/logo.jpg" | absURL}}{{end}}" />

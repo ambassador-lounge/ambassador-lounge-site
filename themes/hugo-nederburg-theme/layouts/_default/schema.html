@@ -14,4 +14,4 @@
     <meta itemprop="url" content="https://www.ambassador-lounge.com/logo.jpg">
 </span>
 </span>
-<meta itemprop="image" content="{{if in .Params "image"}}{{ .Params.image }}{{else}}{{"/images/podcast.jpg" | absURL}}{{end}}" />
+<meta itemprop="image" content="{{if in .Params "image"}}{{ .Params.image | absURL }}{{else}}{{"/images/podcast.jpg" | absURL}}{{end}}" />
