@@ -10,13 +10,8 @@
 
 {{ if .Params.image }}
     <meta property="og:image" content="{{ .Params.image }}" />
-    <meta name="twitter:image:src" content="{{ .Params.image }}">
-{{ end }}
-
-{{ if .Params.ogimage }}
-<meta itemprop="image" content="{{ .Params.ogimage }}" />
+    <meta name="twitter:image" content="{{ .Params.image }}" />
 {{ else }}
-    {{ range .Params.categories }}
-        <meta itemprop="image" content="https://ig.nore.me/img/categories/category-{{ . | urlize }}-full.jpg" />
-    {{ end }}
+    <meta property="og:image" content="{{"/images/logo.jpg" | absURL}}" />
+    <meta name="twitter:image" content="{{"/images/logo.jpg" | absURL}}" />
 {{ end }}
