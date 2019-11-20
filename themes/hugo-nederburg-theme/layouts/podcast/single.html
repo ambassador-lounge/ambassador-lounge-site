@@ -62,14 +62,16 @@
 </div>
 
 
-
+{{ if in .Params "tags" }}
+{{ if gt (len .Params.tags) 0 }}
 <div class="entry-tags"><p><span>Tags</span>
   {{ range $index, $name := .Params.tags }}
   <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}" title="View all posts tagged {{ $name }}">{{ $name }}</a>
   {{ end }}
 </p></div>
+{{ end }}
+{{ end }}
 
-<div class="entry-tags"><span>Ambassadors</span></div>
 {{ range $ambassadorName := .Params.ambassadors }}
 <div class="entry-ambassadors">
           {{ $ambassador := index $.Site.Data.ambassadors $ambassadorName }}
