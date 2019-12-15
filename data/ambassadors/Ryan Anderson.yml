@@ -1,0 +1,11 @@
+name: Ryan Anderson
+companies:
+  "Tech Connect": http://www.tech-connect.com.au/
+websites:
+  "Some Cloud Developer": https://somecloud.dev
+location: Brisbane, Australia
+linkedin: https://www.linkedin.com/in/ryan-anderson-aus/
+github: "https://github.com/rdando/"
+# email:
+bio:
+  - Ryan is a Solutions Architect at TechConnect IT Solutions, an APN Advanced Consulting Partner. As a Software Development and DevOps specialist, Ryan excels in building decoupled microservice architectures in AWS. He is passionate about creating Serverless architectures for clients and is very proud to have reduced their monthly bills to single digits.
